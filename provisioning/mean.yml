@@ -1,12 +1,16 @@
 ---
 - hosts: all
   user: vagrant
+  sudo: yes
 
   roles:
     - common
     - ruby
+    - nodesource.node
     - nodejs
-    - mongodb
-    - yo
     - express
-    - nginx
+    - yo
+    - grunt
+    - gulp
+    - bower
+    - mongodb

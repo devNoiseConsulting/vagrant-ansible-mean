@@ -1,10 +1,17 @@
 ---
-- name: Ruby | Install Ruby
-  apt: pkg=ruby update-cache=yes
-  sudo: yes
+- name: Install Ruby
+  apt: pkg=ruby-full state=present update_cache=yes
+  register: rubyInstalled
   tags: ruby
 
-- name: Ruby | Install compass gem
-  gem: name=compass
-  sudo: yes
+- name: Install Ruby Gems Integration
+  apt: pkg=rubygems-integration state=present update_cache=yes
+  when: rubyInstalled|success
+  register: gemsInstalled
+  tags: ruby
+
+- name: Install compass gem
+  gem: name=compass user_install=no state=present
+  when: gemsInstalled|success
+  register: compassInstalled
   tags: ruby

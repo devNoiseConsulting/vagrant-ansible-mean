@@ -1,10 +1,16 @@
 ---
-- name: Yeoman | Install Yeoman
-  sudo: yes
-  npm: name=yo global=yes
+- name: Install Yeoman
+  npm: name=yo global=yes state=present
+  when: nodeInstalled|success
+  register: yoInstalled
   tags: yeoman
 
-- name: Yeoman | Install Angular.js generator
-  sudo: yes
-  npm: name=generator-angular global=yes
+- name: Install AngularJS generator
+  npm: name=generator-angular global=yes state=present
+  when: yoInstalled|success
+  tags: yeoman
+
+- name: Install AngularJS / Gulp generator
+  npm: name=generator-gulp-angular global=yes state=present
+  when: yoInstalled|success
   tags: yeoman

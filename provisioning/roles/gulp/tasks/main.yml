@@ -1,0 +1,6 @@
+---
+- name: Install Gulp
+  npm: name=gulp global=yes state=present
+  when: nodeInstalled|success
+  tags: gulp
+

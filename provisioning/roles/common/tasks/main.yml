@@ -1,10 +1,17 @@
 ---
-- name: Common | Update apt cache
-  sudo: yes
-  apt: update-cache=yes
+- name: Update apt cache
+  apt: update_cache=yes upgrade=safe
   tags: common
 
-- name: Common | Update language
-  sudo: yes
-  apt: pkg=language-pack-en
+- name: Update language
+  apt: name=language-pack-en
+  tags: common
+
+- name: Installs common utilities for development
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+  - vim
+  - curl
+  - git
+  - unzip
   tags: common
