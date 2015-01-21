@@ -9,3 +9,8 @@
   npm: name=express-generator global=yes state=present
   when: expressInstalled|success
   tags: express
+
+- name: Install MEAN.JS generator
+  npm: name=generator-meanjs global=yes state=present
+  when: expressInstalled|success
+  tags: express

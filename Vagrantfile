@@ -23,7 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   #provisions the environment
   config.vm.provision "ansible" do |ansible|
-    #ansible.raw_arguments = "-i ./provisioning/hosts"
+    ansible.limit = 'all'
+    ansible.extra_vars = { user: "vagrant" }
+    ansible.inventory_path = "provisioning/hosts"
     ansible.playbook = "provisioning/mean.yml"
   end
 end

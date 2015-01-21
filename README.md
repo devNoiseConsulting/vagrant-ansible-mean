@@ -53,12 +53,14 @@ end
 Ansible installs the following packages:
 * git
 * nodejs
+* express
 * mongodb
+* bower
 * yeoman
 * generator-angular for yeoman
 * generator-gulp-angular for yeoman
-* bower
-* express
+* express-generator for yeoman
+* generator-meanjs for yeoman
 * nginx
 
 The mongodb and nginx services are started after provisioning takes place.
