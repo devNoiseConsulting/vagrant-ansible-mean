@@ -1,6 +1,6 @@
 ---
 - name: Install Grunt
   npm: name=grunt-cli global=yes state=present
-  when: nodeInstalled|success
+  when: npmInstalled|success
   tags: grunt
 

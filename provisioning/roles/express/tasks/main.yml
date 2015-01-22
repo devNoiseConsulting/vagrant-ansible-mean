@@ -1,16 +1,16 @@
 ---
 - name: Install Express
   npm: name=express global=yes state=present
-  when: nodeInstalled|success
+  when: npmInstalled|success
   register: expressInstalled
   tags: express
   
 - name: Install Express generator
   npm: name=express-generator global=yes state=present
-  when: expressInstalled|success
+  when: expressInstalled|success and yoInstalled|success
   tags: express
 
 - name: Install MEAN.JS generator
   npm: name=generator-meanjs global=yes state=present
-  when: expressInstalled|success
+  when: expressInstalled|success and yoInstalled|success
   tags: express

@@ -1,7 +1,7 @@
 ---
 - name: Install Yeoman
   npm: name=yo global=yes state=present
-  when: nodeInstalled|success
+  when: npmInstalled|success
   register: yoInstalled
   tags: yeoman
 

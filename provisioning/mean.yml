@@ -8,9 +8,9 @@
     - ruby
     - nodesource.node
     - nodejs
-    - express
-    - yo
     - grunt
     - gulp
     - bower
+    - yo
+    - express
     - mongodb
