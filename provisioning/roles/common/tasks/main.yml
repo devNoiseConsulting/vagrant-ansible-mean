@@ -10,8 +10,12 @@
 - name: Installs common utilities for development
   apt: name={{ item }} state=present update_cache=yes
   with_items:
-  - vim
+  - build-essential
+  - sudo
+  - procps
+  - wget
   - curl
+  - vim
   - git
   - unzip
   tags: common
