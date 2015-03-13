@@ -1,0 +1,6 @@
+---
+- name: Install Foundation for Apps
+  npm: name=foundation-cli global=yes state=present
+  when: npmInstalled|success and bowerInstalled|success and bundlerInstalled|success
+  tags: foundation
+

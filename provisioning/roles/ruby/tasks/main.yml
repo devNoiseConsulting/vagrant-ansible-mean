@@ -15,3 +15,9 @@
   when: gemsInstalled|success
   register: compassInstalled
   tags: ruby
+
+- name: Install bundler gem
+  gem: name=bundler user_install=no state=present
+  when: gemsInstalled|success
+  register: bundlerInstalled
+  tags: ruby
