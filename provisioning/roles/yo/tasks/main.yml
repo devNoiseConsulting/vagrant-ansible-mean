@@ -14,3 +14,8 @@
   npm: name=generator-gulp-angular global=yes state=present
   when: yoInstalled|success
   tags: yeoman
+
+- name: Install HotTowel generator
+  npm: name=generator-hottowel global=yes state=present
+  when: yoInstalled|success and nodemonInstalled|success and gulpInstalled|success and bowerInstalled|success
+  tags: yeoman

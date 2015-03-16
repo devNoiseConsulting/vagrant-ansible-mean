@@ -1,0 +1,7 @@
+---
+- name: Install nodemon
+  npm: name=nodemon global=yes state=present
+  when: nodeInstalled|success
+  register: nodemonInstalled
+  tags: nodemon
+
