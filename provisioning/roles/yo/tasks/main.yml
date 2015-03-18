@@ -7,10 +7,10 @@
 
 - name: Install AngularJS generator
   npm: name=generator-angular global=yes state=present
-  when: yoInstalled|success
+  when: yoInstalled|success and gruntInstalled|success
   tags: yeoman
 
 - name: Install AngularJS / Gulp generator
   npm: name=generator-gulp-angular global=yes state=present
-  when: yoInstalled|success
+  when: yoInstalled|success and gulpInstalled|success
   tags: yeoman
