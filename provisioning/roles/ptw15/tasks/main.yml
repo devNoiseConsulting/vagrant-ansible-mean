@@ -1,0 +1,50 @@
+---
+- name: Install Yeoman
+  npm: name=yo global=yes state=present
+  when: npmInstalled|success
+  tags: ptw15
+
+- name: Install AngularJS generator
+  npm: name=generator-angular global=yes state=present
+  when: yoInstalled|success and gruntInstalled|success
+  tags: ptw15
+
+- name: Install Karma
+  npm: name=karma-cli global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install Grunt
+  npm: name=grunt-cli global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install bower
+  npm: name=bower global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install Gulp
+  npm: name=gulp global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install jshint
+  npm: name=jshint global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install nodemon
+  npm: name=nodemon global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install forever
+  npm: name=forever global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
+
+- name: Install nodebug
+  npm: name=nodebug global=yes state=present
+  when: yoInstalled|success
+  tags: ptw15
