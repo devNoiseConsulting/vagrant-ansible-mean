@@ -1,8 +1,13 @@
 ---
 - name: Install latest mongodb
-  apt: name=mongodb state=present update_cache=yes
+  apt:
+    name: mongodb
+    state: present
+    update_cache: yes
   tags: mongodb
 
 - name: Run mongo daemon
-  service: name=mongodb state=started
+  service:
+    name: mongodb
+    state: started
   tags: mongodb

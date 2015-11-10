@@ -1,12 +1,17 @@
 ---
 - name: Nginx | Install nginx
-  apt: pkg=nginx
+  apt:
+    pkg: nginx
   tags: nginx
 
 - name: Nginx | Setup reverse proxy
-  template: src=default dest=/etc/nginx/sites-available/
+  template:
+    src: default
+    dest: /etc/nginx/sites-available/
   tags: nginx
 
 - name: Nginx | Start nginx
-  service: name=nginx state=restarted
+  service:
+    name: nginx
+    state: restarted
   tags: nginx

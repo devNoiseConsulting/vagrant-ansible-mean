@@ -1,6 +1,9 @@
 ---
 - name: Install Grunt
-  npm: name=grunt-cli global=yes state=present
+  npm:
+    name: grunt-cli
+    global: yes
+    state: present
   when: npmInstalled|success
   register: gruntInstalled
   tags: grunt

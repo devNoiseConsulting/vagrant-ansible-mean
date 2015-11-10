@@ -1,6 +1,9 @@
 ---
 - name: Install Bower
-  npm: name=bower global=yes state=present
+  npm:
+    name: bower
+    global: yes
+    state: present
   when: npmInstalled|success
   register: bowerInstalled
   tags: bower

@@ -1,17 +1,26 @@
 ---
 - name: Install Ruby
-  apt: pkg=ruby-full state=present update_cache=yes
+  apt:
+    pkg: ruby-full
+    state: present
+    update_cache: yes
   register: rubyInstalled
   tags: ruby
 
 - name: Install Ruby Gems Integration
-  apt: pkg=rubygems-integration state=present update_cache=yes
+  apt:
+    pkg: rubygems-integration
+    state: present
+    update_cache: yes
   when: rubyInstalled|success
   register: gemsInstalled
   tags: ruby
 
 - name: Install compass gem
-  gem: name=compass user_install=no state=present
+  gem:
+    name: compass
+    user_install: no
+    state: present
   when: gemsInstalled|success
   register: compassInstalled
   tags: ruby

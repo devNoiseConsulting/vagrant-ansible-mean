@@ -1,11 +1,27 @@
 ---
 - name: Install Node.js
-  apt: name=nodejs state=present update_cache=yes
+  apt:
+    name: nodejs
+    state: present
+    update_cache: yes
   register: nodeInstalled
   tags: nodejs
 
-- name: Update NPM to version 2.*
-  npm: name=npm global=yes state=present version=2
+- name: Update NPM to version 3.*
+  npm:
+    name: npm
+    global: yes
+    state: present
+    version: "3"
   when: nodeInstalled|success
   register: npmInstalled
+  tags: nodejs
+
+- name: Install npm-check-updates
+  npm:
+    name: npm-check-updates
+    global: yes
+    state: present
+  when: npmInstalled|success
+  register: npmCheckUpdatesInstalled
   tags: nodejs
