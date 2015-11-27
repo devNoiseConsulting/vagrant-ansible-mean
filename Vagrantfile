@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network :private_network, ip: "192.168.111.222"
+  config.vm.network "forwarded_port", guest: 9000, host: 9000
+
 
   #syncs entire project directory to ~/application on target machine
   config.vm.synced_folder ".", "/home/vagrant/application"

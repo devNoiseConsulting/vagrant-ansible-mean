@@ -25,3 +25,12 @@
   when: npmInstalled|success
   register: npmCheckUpdatesInstalled
   tags: nodejs
+
+- name: Install Live Server
+  npm:
+    name: live-server
+    global: yes
+    state: present
+  when: npmInstalled|success
+  register: liveServernstalled
+  tags: nodejs
